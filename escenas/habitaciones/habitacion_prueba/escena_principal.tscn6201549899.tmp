@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dtoervwdbt7tb"]
+
+[ext_resource type="Texture2D" uid="uid://ihi4mhnnh8ie" path="res://assets/img_1/habitacion_prueba.png" id="1_0dkt8"]
+[ext_resource type="Script" uid="uid://qdefqloqtpq7" path="res://escenas/habitaciones/habitacion_prueba/area_cuadro.gd" id="2_e7aa7"]
+[ext_resource type="Script" uid="uid://dmo61bf1xvsvn" path="res://escenas/habitaciones/habitacion_prueba/area_puerta.gd" id="3_e7aa7"]
+[ext_resource type="Script" uid="uid://dkydry78hbp12" path="res://escenas/habitaciones/habitacion_prueba/area_2d.gd" id="4_3fh34"]
+[ext_resource type="Script" uid="uid://bw51hme5vu33s" path="res://escenas/habitaciones/habitacion_prueba/area_prueba.gd" id="5_sv0wu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_om7lw"]
+radius = 84.14868
+
+[node name="HabitacionPrueba" type="Node2D" unique_id=1613491294]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=347296460]
+position = Vector2(798, 447)
+texture = ExtResource("1_0dkt8")
+
+[node name="AreaCuadro" type="Area2D" parent="Sprite2D" unique_id=366112752]
+script = ExtResource("2_e7aa7")
+use_border = null
+border_color = null
+border_width = null
+use_fill = null
+fill_color = null
+use_additive_blend = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/AreaCuadro" unique_id=1341243541]
+position = Vector2(-189, -139)
+polygon = PackedVector2Array(1, -1, -13, -208, 194, -208, 201, -9)
+
+[node name="AreaPuerta" type="Area2D" parent="Sprite2D" unique_id=1835306009]
+script = ExtResource("3_e7aa7")
+use_border = null
+border_color = null
+border_width = null
+use_fill = null
+fill_color = null
+use_additive_blend = null
+
+[node name="Puerta" type="CollisionPolygon2D" parent="Sprite2D/AreaPuerta" unique_id=1508055448]
+position = Vector2(619, 212)
+polygon = PackedVector2Array(4, -4, 14, -355, 152, -235, 122, 137, 0, -1)
+
+[node name="AreaCaja" type="Area2D" parent="Sprite2D" unique_id=191458668]
+script = ExtResource("4_3fh34")
+use_border = null
+border_color = null
+border_width = null
+use_fill = null
+fill_color = null
+use_additive_blend = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/AreaCaja" unique_id=1549072692]
+position = Vector2(-698, 253)
+polygon = PackedVector2Array(-1, 0, 110, 14, 180, -72, 181, -199, 29, -196, -6, -180)
+
+[node name="AreaPrueba" type="Area2D" parent="Sprite2D" unique_id=695893113]
+script = ExtResource("5_sv0wu")
+use_border = null
+border_color = null
+border_width = null
+use_fill = null
+fill_color = null
+use_additive_blend = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AreaPrueba" unique_id=495108795]
+position = Vector2(48, 121)
+shape = SubResource("CircleShape2D_om7lw")

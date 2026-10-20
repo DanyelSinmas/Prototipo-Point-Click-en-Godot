@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cmr201qo331up"]
+
+[ext_resource type="Shader" uid="uid://b68k7m7j44j20" path="res://escenas/habitaciones/habitacion_prueba/shaderHover.gdshader" id="1_xnehg"]
+
+[resource]
+shader = ExtResource("1_xnehg")
+shader_parameter/is_active = false
+shader_parameter/highlight_color = Color(1, 1, 1, 0.5294118)

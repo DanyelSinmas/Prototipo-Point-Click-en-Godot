@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bb8wkeypqcx0x"]
+
+[ext_resource type="Texture2D" uid="uid://vgd78k1i4o1a" path="res://assets/img_2/habitacion_dos.png" id="1_mc7pk"]
+[ext_resource type="Script" uid="uid://dmiobi3sxg6iy" path="res://escenas/habitaciones/habitacion_dos/puerta_uno_hab_dos.gd" id="2_mc7pk"]
+
+[node name="HabitacionDos" type="Node2D" unique_id=1837156288]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1454616776]
+position = Vector2(800, 450)
+texture = ExtResource("1_mc7pk")
+
+[node name="puerta_uno" type="Area2D" parent="Sprite2D" unique_id=1483087002]
+script = ExtResource("2_mc7pk")
+escena_destino = "uid://dtoervwdbt7tb"
+descripcion_objeto = "Quieres volver a tú habitación?"
+requiere_confirmacion = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/puerta_uno" unique_id=2007910948]
+position = Vector2(-718, 326)
+polygon = PackedVector2Array(0, -333, -1, -1, 86, -176, 82, -516)

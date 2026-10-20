@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c0bldkksuofuu"]
+
+[ext_resource type="Script" uid="uid://csb46makwjpw7" path="res://scripts/dialogue_box.gd" id="1_vw2pu"]
+[ext_resource type="Script" uid="uid://cegcakdljlluq" path="res://scripts/button_style.gd" id="3_pi7h1"]
+
+[sub_resource type="SystemFont" id="SystemFont_qbx6i"]
+font_names = PackedStringArray("MS Gothic", "Arial")
+modulate_color_glyphs = true
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vw2pu"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(3.3800004, 3.3800004, 3.3800004, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_v72c2"]
+font_names = PackedStringArray("MS PGothic")
+
+[sub_resource type="SystemFont" id="SystemFont_nqwa6"]
+font_names = PackedStringArray("MS Gothic")
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=554547186]
+script = ExtResource("1_vw2pu")
+texto_a_mostrar = ""
+velocidad_letra = 0.03
+fuente_custom = SubResource("SystemFont_qbx6i")
+tamano_letra = 25
+color_texto = Color(18.892, 18.892, 18.892, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=760541175]
+offset_top = 660.0
+offset_right = 1599.0
+offset_bottom = 900.0
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1243221450]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vw2pu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel" unique_id=783716308]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 36.0
+offset_right = 1554.0
+offset_bottom = 116.0
+
+[node name="ContenedorOpciones" type="HBoxContainer" parent="MarginContainer/Panel" unique_id=1466359816]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 116.0
+offset_right = 495.0
+offset_bottom = 198.0
+theme_override_constants/separation = 30
+
+[node name="BotonSi" type="Button" parent="MarginContainer/Panel/ContenedorOpciones" unique_id=639889322]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Si"
+flat = true
+expand_icon = true
+script = ExtResource("3_pi7h1")
+fuente_custom = SubResource("SystemFont_v72c2")
+tamano_fuente = 25
+
+[node name="BotonNo" type="Button" parent="MarginContainer/Panel/ContenedorOpciones" unique_id=1714726517]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "No"
+flat = true
+expand_icon = true
+script = ExtResource("3_pi7h1")
+fuente_custom = SubResource("SystemFont_nqwa6")
+tamano_fuente = 25

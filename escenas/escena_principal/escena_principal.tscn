@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dg6d0dg1ndhb6"]
+
+[ext_resource type="PackedScene" uid="uid://dtoervwdbt7tb" path="res://escenas/habitaciones/habitacion_prueba/habitacion_prueba.tscn" id="1_pdctq"]
+[ext_resource type="Script" uid="uid://d12lvysr2ohhy" path="res://escenas/escena_principal/escena_principal.gd" id="1_yoxmf"]
+[ext_resource type="PackedScene" uid="uid://c0bldkksuofuu" path="res://escenas/dialogue_box/dialogue_box.tscn" id="2_snxy5"]
+
+[node name="EscenaPrincipal" type="Node2D" unique_id=1597819325]
+script = ExtResource("1_yoxmf")
+
+[node name="HabitacionPrueba" parent="." unique_id=1613491294 instance=ExtResource("1_pdctq")]
+position = Vector2(-4, -3)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=425716281]
+position = Vector2(799, 452)
+
+[node name="DialogueBox" parent="." unique_id=554547186 instance=ExtResource("2_snxy5")]

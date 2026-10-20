@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dtoervwdbt7tb"]
+
+[ext_resource type="Texture2D" uid="uid://ihi4mhnnh8ie" path="res://assets/img_1/habitacion_prueba.png" id="1_0dkt8"]
+[ext_resource type="Script" uid="uid://cd8qglu50dytv" path="res://escenas/habitaciones/habitacion_prueba/cuadro.gd" id="2_kxwmq"]
+[ext_resource type="Shader" uid="uid://bsa5lqb7ingd4" path="res://escenas/habitaciones/habitacion_prueba/pointedItem.gdshader" id="3_3fh34"]
+[ext_resource type="Script" uid="uid://dmo61bf1xvsvn" path="res://escenas/habitaciones/habitacion_prueba/area_puerta.gd" id="3_e7aa7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3fh34"]
+shader = ExtResource("3_3fh34")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeiif"]
+size = Vector2(206, 211)
+
+[node name="HabitacionPrueba" type="Node2D" unique_id=1613491294]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=347296460]
+position = Vector2(798, 447)
+texture = ExtResource("1_0dkt8")
+
+[node name="AreaCuadro" type="Area2D" parent="Sprite2D" unique_id=366112752]
+script = ExtResource("2_kxwmq")
+
+[node name="Cuadro" type="CollisionShape2D" parent="Sprite2D/AreaCuadro" unique_id=610222999]
+material = SubResource("ShaderMaterial_3fh34")
+position = Vector2(-94, -245.5)
+shape = SubResource("RectangleShape2D_yeiif")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sprite2D/AreaCuadro" unique_id=1706237119]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Sprite2D/AreaCuadro/CanvasLayer" unique_id=796233109]
+position = Vector2(798, 447)
+color = Color(0.3647059, 0.68235296, 0.11764706, 0.62352943)
+
+[node name="AreaPuerta" type="Area2D" parent="Sprite2D" unique_id=1835306009]
+script = ExtResource("3_e7aa7")
+
+[node name="Puerta" type="CollisionPolygon2D" parent="Sprite2D/AreaPuerta" unique_id=1508055448]
+position = Vector2(619, 212)
+polygon = PackedVector2Array(4, -4, 14, -355, 152, -235, 122, 137, 0, -1)

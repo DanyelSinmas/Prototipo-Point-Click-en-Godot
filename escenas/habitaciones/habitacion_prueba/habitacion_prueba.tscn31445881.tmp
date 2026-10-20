@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dtoervwdbt7tb"]
+
+[ext_resource type="Texture2D" uid="uid://ihi4mhnnh8ie" path="res://assets/img_1/habitacion_prueba.png" id="1_f1q3u"]
+
+[sub_resource type="GDScript" id="GDScript_f1q3u"]
+
+[node name="HabitacionPrueba" type="Node2D" unique_id=1613491294]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=347296460]
+position = Vector2(804, 453)
+texture = ExtResource("1_f1q3u")
+
+[node name="AreaCuadro" type="Area2D" parent="Sprite2D" unique_id=366112752]
+
+[node name="Cuadro" type="CollisionPolygon2D" parent="Sprite2D/AreaCuadro" unique_id=1341243541]
+position = Vector2(-189, -139)
+polygon = PackedVector2Array(1, -1, -13, -208, 194, -208, 201, -9)
+
+[node name="AreaPuerta" type="Area2D" parent="Sprite2D" unique_id=1835306009]
+position = Vector2(2, 0)
+script = SubResource("GDScript_f1q3u")
+
+[node name="Puerta" type="CollisionPolygon2D" parent="Sprite2D/AreaPuerta" unique_id=1508055448]
+position = Vector2(619, 212)
+polygon = PackedVector2Array(4, -4, 14, -355, 152, -235, 122, 137, 0, -1)
