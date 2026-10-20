@@ -5,19 +5,30 @@ extends InteractiveItem
 @export_file("*.tscn") var escena_destino: String
 @export_multiline var mensaje_cancelacion: String = "Decidiste quedarte."
 
-# Sobrescribir el manejo de la respuesta para personalizar qué sucede al pulsar Sí o No.
+## Sobrescribe el procesamiento de la respuesta del diálogo para manejar la bifurcación de navegación.
 func _on_respuesta_jugador(aceptado: bool) -> void:
 	if aceptado:
-		# 1. Si elige SÍ: Limpiar la caja de texto y solicitamos el cambio de escena.
+		# Rama afirmativa: Reproduce el sonido de éxito exclusivamente al confirmar, 
+		# limpia el diálogo y ejecuta la transición de escena.
+		reproducir_sonido(true)
 		SignalBusText.limpiar_dialogo.emit()
 		_accion_objeto()
 	else:
-		# 2. Si elige NO: Mostrar el texto genérico/personalizado de cancelación.
+		# Rama negativa: El usuario eligió "No". No se reproduce sonido alguno, 
+		# emitiendo únicamente la notificación textual de cancelación.
 		SignalBusText.mostrar_dialogo.emit(self, mensaje_cancelacion)
 
-# Ejecuta el cambio de escena hacia la ruta configurada.
+## Gestiona la transición hacia el archivo de escena destino especificado en el inspector.
 func _accion_objeto() -> void:
 	if not escena_destino.is_empty():
+		# Salvaguarda de audio: desacopla temporalmente el reproductor del árbol actual 
+		# antes de liberar la escena para asegurar que el efecto de sonido concluya sin cortes abruptos.
+		if audio_player and audio_player.playing:
+			audio_player.get_parent().remove_child(audio_player)
+			get_tree().root.add_child(audio_player)
+			# Programa la liberación automática del recurso en memoria al finalizar el stream de audio.
+			audio_player.finished.connect(audio_player.queue_free)
+		
 		SignalBusText.cambiar_habitacion_solicitada.emit(escena_destino)
 	else:
-		print("Advertencia: No hay un archivo .tscn asignado en el nodo: ", name)
+		push_warning("SceneTransitionItem: No se ha asignado una ruta de escena destino válida en el nodo: ", name)

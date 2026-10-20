@@ -14,6 +14,10 @@ config/name="PrototipoPoint&Click"
 run/main_scene="uid://dg6d0dg1ndhb6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 SignalBusText="*uid://dmsd3j1c6wu4i"

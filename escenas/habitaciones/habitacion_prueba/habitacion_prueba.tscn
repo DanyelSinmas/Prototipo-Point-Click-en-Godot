@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ihi4mhnnh8ie" path="res://assets/img_1/habitacion_prueba.png" id="1_f1q3u"]
 [ext_resource type="Script" uid="uid://dmo61bf1xvsvn" path="res://escenas/habitaciones/habitacion_prueba/area_puerta.gd" id="2_6y8q4"]
 [ext_resource type="Script" uid="uid://qdefqloqtpq7" path="res://escenas/habitaciones/habitacion_prueba/area_cuadro.gd" id="2_xf473"]
+[ext_resource type="AudioStream" uid="uid://d1dvkticcs57s" path="res://sfx/Point n Click Detective Sfx Ambroggiomusic/Weird Door Creak.mp3" id="3_fr6dv"]
 
 [node name="HabitacionPrueba" type="Node2D" unique_id=1613491294]
 
@@ -13,6 +14,7 @@ texture = ExtResource("1_f1q3u")
 [node name="AreaCuadro" type="Area2D" parent="Sprite2D" unique_id=366112752]
 script = ExtResource("2_xf473")
 descripcion_objeto = "El cuadro está triste "
+sound_effect = ExtResource("3_fr6dv")
 
 [node name="Cuadro" type="CollisionPolygon2D" parent="Sprite2D/AreaCuadro" unique_id=1341243541]
 position = Vector2(-189, -139)
@@ -24,6 +26,7 @@ script = ExtResource("2_6y8q4")
 escena_destino = "uid://bb8wkeypqcx0x"
 descripcion_objeto = "Quieres cambiar de habitacion?"
 requiere_confirmacion = true
+sound_effect = ExtResource("3_fr6dv")
 
 [node name="Puerta" type="CollisionPolygon2D" parent="Sprite2D/AreaPuerta" unique_id=1508055448]
 position = Vector2(619, 212)

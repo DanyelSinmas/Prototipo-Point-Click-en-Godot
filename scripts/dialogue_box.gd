@@ -71,14 +71,17 @@ func _conectar_senales() -> void:
 
 # Callback para solicitudes de diálogo estándar sin opciones.
 func _on_mostrar_dialogo_recibido(sender: Object, nuevo_texto: String) -> void:
+	# Rechaza la solicitud si el mismo emisor intenta enviar texto mientras aún se está escribiendo (anti-spam).
 	if sender == current_sender and esta_escribiendo:
 		return
 	
 	current_sender = sender
 	iniciar_dialogo(nuevo_texto, false, Callable())
+	# Nota: El audio se gestiona de forma controlada en el emisor para evitar efectos secundarios en textos de cancelación.
 
 # Callback para solicitudes de diálogo con opciones de decisión.
 func _on_mostrar_dialogo_con_opciones_recibido(sender: Object, nuevo_texto: String, on_decision: Callable) -> void:
+	# Rechaza la solicitud si el mismo emisor interactúa de forma concurrente durante la escritura.
 	if sender == current_sender and esta_escribiendo:
 		return
 	
